@@ -1776,3 +1776,20 @@ body {
 .sheet__actions { position: sticky; bottom: 0; padding-top: 12px; background: linear-gradient(to bottom, transparent, rgba(3,5,7,.97) 30%); }
 .sheet__actions .btn { min-height: 52px; }
 @media (max-height: 700px) { .sheet__nav a { padding-block: 6px; font-size: 26px; } }
+
+/* ---------- Barra fixa de assinatura (celular), encaixe do botão ---------- */
+@media (max-width: 899px) {
+  .dock {
+    left: 12px; right: 12px; gap: 14px;
+    padding: 10px 10px 10px 18px; border-radius: 22px;
+    background: linear-gradient(180deg, rgba(14, 26, 38, .96), rgba(6, 10, 15, .96));
+    box-shadow: 0 0 0 1.5px var(--stroke-c), 0 18px 40px -12px rgba(0, 0, 0, .95), 0 0 30px -10px rgba(14, 165, 233, .45);
+  }
+  .dock__txt { gap: 2px; }
+  .dock__txt strong { font-size: 21px; line-height: 1; }
+  .dock__txt span { font-size: 11.5px; line-height: 1.2; }
+  .dock .btn {
+    flex: none; min-height: 42px; padding: 0 18px 2px; margin: 3px;
+    border-radius: 12px; font-size: 18px; letter-spacing: .1em;
+  }
+}
