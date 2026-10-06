@@ -1,0 +1,127 @@
+---
+title: RSS Feed | Warbox TV
+description: RSS no seu app. Seu feed privado pra ouvir no app de podcast que você já usa: Os Fera Neném, Pauta Mole, Notas sobre Notas e todos os outros programas.
+nav: rss
+---
+    <section class="phero rss-hero" aria-labelledby="t-rss">
+      <div class="wrap rss-hero__grid">
+        <div class="rss-hero__copy">
+          <p class="eyebrow rv">RSS Feed</p>
+          <h1 class="display a-title" id="t-rss">RSS no seu app</h1>
+          <p class="phero__lead rv">Seu feed privado pra ouvir no app de podcast que você já usa.</p>
+
+          <div class="feedurl rv" aria-label="Endereço do feed">
+            <span class="feedurl__ico" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 4a16 16 0 0 1 16 16M4 10a10 10 0 0 1 10 10"/><circle cx="5" cy="19" r="1.5"/></svg></span>
+            <span class="feedurl__txt">app.warbox.tv/rssfeed</span>
+            <a class="feedurl__go" href="https://app.warbox.tv/rssfeed">RSS Feed {{> i-arrow}}</a>
+          </div>
+
+          <div class="phero__actions rv">
+            <a class="btn btn--primary btn--lg" href="/assinar/">Assinar por R$ 21,90/mês {{> i-arrow}}</a>
+            <a class="btn btn--secondary btn--lg" href="/login/">Entrar</a>
+          </div>
+          <ul class="facts rv">
+            <li><strong>8</strong><span>programas no ar</span></li>
+            <li><strong>55+</strong><span>episódios só de Os Fera Neném</span></li>
+            <li><strong>0</strong><span>fidelidade: cancela quando quiser</span></li>
+          </ul>
+        </div>
+
+        <!-- sinal de RSS saindo do iPhone -->
+        <div class="rss-stage rv">
+          <div class="signal" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+          <div class="rss-stage__phone">
+            {{> iphone-open}}
+                  <div class="podcast">
+                    <p class="podcast__h"><span><svg viewBox="0 0 24 24"><path d="M4 4a16 16 0 0 1 16 16M4 10a10 10 0 0 1 10 10"/><circle cx="5" cy="19" r="1.5"/></svg></span>Warbox</p>
+                    <div class="podcast__show">
+                      <img src="/assets/capas/os-fera-nenem.webp" alt="" width="640" height="640" decoding="async">
+                      <span><b>Os Fera Neném #55</b>Papo de Ferro<i class="podcast__play"></i></span>
+                    </div>
+                    <ul class="feed">
+                      <li><img src="/assets/capas/notas-sobre-notas.webp" alt="" width="640" height="640" decoding="async"><span><b>Notas sobre Notas</b>Ed Motta: Toe Toe</span></li>
+                      <li><img src="/assets/capas/cagando-e-andando.webp" alt="" width="640" height="640" decoding="async"><span><b>Cagando e Andando</b>Episódio novo</span></li>
+                      <li><img src="/assets/capas/notas-sobre-notas.webp" alt="" width="640" height="640" decoding="async"><span><b>Notas sobre Notas #108</b>Beady Eye</span></li>
+                      <li><img src="/assets/capas/os-fera-nenem.webp" alt="" width="640" height="640" decoding="async"><span><b>Os Fera Neném</b>Episódio #54</span></li>
+                      <li><img src="/assets/capas/pauta-mole.webp" alt="" width="640" height="640" decoding="async"><span><b>Pauta Mole</b>Episódio #36</span></li>
+                    </ul>
+                  </div>
+            {{> iphone-close}}
+          </div>
+          <span class="float-chip rss-chip rss-chip--a" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg>Modo áudio</span>
+          <span class="float-chip rss-chip rss-chip--b" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M10 9l5 3-5 3z"/></svg>Programas completos</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- passo a passo -->
+    <section class="sec sec--tint" aria-labelledby="t-rss-how">
+      <div class="wrap">
+        <div class="sec__head">
+          <h2 class="h2 a-title" id="t-rss-how">Como funciona</h2>
+          <p class="sec__lead rv">Seu feed privado pra ouvir no app de podcast que você já usa.</p>
+        </div>
+        <ol class="rsteps">
+          <li class="rstep rv">
+            <span class="rstep__n" aria-hidden="true">1</span>
+            <h3 class="rstep__title">Escolha seu plano</h3>
+            <p>O que você leva no Plano Pika.</p>
+            <a class="link" href="/planos/">Planos da Trincheira {{> i-arrow}}</a>
+          </li>
+          <li class="rstep rv">
+            <span class="rstep__n" aria-hidden="true">2</span>
+            <h3 class="rstep__title">Acesse a plataforma</h3>
+            <p>Agora o login é por senha. Se você ainda não tem senha, crie uma na tela de entrar.</p>
+            <a class="link" href="/login/">Entrar {{> i-arrow}}</a>
+          </li>
+          <li class="rstep rv">
+            <span class="rstep__n" aria-hidden="true">3</span>
+            <h3 class="rstep__title">RSS no seu app</h3>
+            <p>Seu feed privado pra ouvir no app de podcast que você já usa.</p>
+            <a class="link" href="https://app.warbox.tv/rssfeed">RSS Feed {{> i-arrow}}</a>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- o que entra no feed -->
+    <section class="sec" aria-labelledby="t-rss-prog">
+      <div class="wrap rss-what">
+        <div class="rss-what__copy">
+          <h2 class="h2 a-title" id="t-rss-prog">Programas completos</h2>
+          <p class="feature__lead rv">Pauta Mole, Os Fera Neném e todos os outros, do começo ao fim.</p>
+          <p class="quote rv">O programa inteiro, sem corte. No YouTube sai só um pedaço.</p>
+          <ul class="checks rv">
+            <li><strong>Modo áudio</strong> Troca o vídeo pelo áudio e escuta no trânsito, na academia, no trabalho.</li>
+            <li><strong>WARBOX.FM</strong> Aperta o play e a rádio sorteia um episódio do acervo. Acabou, vem outro.</li>
+          </ul>
+        </div>
+        <ul class="rss-covers">
+          <li class="rv"><img src="/assets/capas/os-fera-nenem.webp" alt="Os Fera Neném" width="640" height="640" loading="lazy" decoding="async"></li>
+          <li class="rv"><img src="/assets/capas/pauta-mole.webp" alt="Pauta Mole" width="640" height="640" loading="lazy" decoding="async"></li>
+          <li class="rv"><img src="/assets/capas/notas-sobre-notas.webp" alt="Notas sobre Notas" width="640" height="640" loading="lazy" decoding="async"></li>
+          <li class="rv"><img src="/assets/capas/trincheira.webp" alt="Trincheira" width="640" height="640" loading="lazy" decoding="async"></li>
+          <li class="rv"><img src="/assets/capas/pauta-reporter.webp" alt="Pauta Repórter" width="640" height="640" loading="lazy" decoding="async"></li>
+          <li class="rv"><img src="/assets/capas/cagando-e-andando.webp" alt="Cagando e Andando" width="640" height="640" loading="lazy" decoding="async"></li>
+          <li class="rv"><img src="/assets/capas/mangalho-files.webp" alt="The Mangalho Files" width="640" height="640" loading="lazy" decoding="async"></li>
+          <li class="rv"><img src="/assets/capas/xuxuzinhos.webp" alt="Xuxuzinhos" width="640" height="640" loading="lazy" decoding="async"></li>
+          <li class="rss-covers__count rv"><strong>8</strong><span>programas no ar</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec sec--tint" aria-labelledby="t-faq">
+      <div class="wrap">
+        <div class="sec__head">
+          <h2 class="h2 a-title" id="t-faq">Perguntas frequentes</h2>
+        </div>
+        <div class="faq__grid">
+          {{> faq}}
+          <div class="faq__side">
+            {{> help}}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    {{> cta}}
