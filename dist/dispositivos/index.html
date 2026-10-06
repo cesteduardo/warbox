@@ -17,8 +17,8 @@
   <link rel="preload" href="/fonts/Jersey10-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add("js");</script>
-  <link rel="stylesheet" href="/css/styles.css?v=aac95101">
-  <script src="/js/main.js?v=378d424f" defer></script>
+  <link rel="stylesheet" href="/css/styles.css?v=68f84939">
+  <script src="/js/main.js?v=94cdaea8" defer></script>
 </head>
 <body class="">
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -32,17 +32,24 @@
 
         <nav class="nav" aria-label="Principal">
           <a href="/" data-nav="index">Início</a>
+          <a class="nav__live" href="https://app.warbox.tv/live" data-live-chip>Live</a>
           <a href="/canais/" data-nav="canais">Programas</a>
-          <a href="/recursos/" data-nav="recursos">Recursos</a>
-          <a href="/como-funciona/" data-nav="como-funciona">Como funciona</a>
+          <a href="/recursos/#jogos">Jogos</a>
+          <a href="https://app.warbox.tv/rssfeed">RSS Feed</a>
           <a href="/planos/" data-nav="planos">Planos</a>
-          <a href="/faq/" data-nav="faq">FAQ</a>
+          <div class="nav__more" data-more>
+            <button type="button" aria-expanded="false" aria-controls="nav-more" data-more-btn>Mais<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
+            <div class="nav__drop" id="nav-more">
+              <a href="/recursos/" data-nav="recursos">Recursos</a>
+              <a href="/como-funciona/" data-nav="como-funciona">Como funciona</a>
+              <a href="/dispositivos/" data-nav="dispositivos" aria-current="page">Dispositivos</a>
+              <a href="/faq/" data-nav="faq">FAQ</a>
+              <a href="/contato/" data-nav="contato">Contato</a>
+            </div>
+          </div>
         </nav>
 
         <div class="hdr__right">
-          <a class="live-chip" href="https://app.warbox.tv/live" data-live-chip>
-            <span class="live-chip__dot" aria-hidden="true"></span>Ao vivo agora
-          </a>
           <a class="hdr__signin" href="/login/" data-nav="login">Entrar</a>
           <a class="btn btn--primary btn--sm hdr__cta" href="/assinar/">Assine</a>
           <button class="menu" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu" data-menu-btn>
@@ -56,10 +63,13 @@
     <div class="sheet" id="menu" data-menu hidden>
       <nav class="sheet__nav" aria-label="Menu">
         <a href="/" data-nav="index">Início</a>
+        <a class="nav__live" href="https://app.warbox.tv/live">Live</a>
         <a href="/canais/" data-nav="canais">Programas</a>
+        <a href="/recursos/#jogos">Jogos</a>
+        <a href="https://app.warbox.tv/rssfeed">RSS Feed</a>
+        <a href="/planos/" data-nav="planos">Planos</a>
         <a href="/recursos/" data-nav="recursos">Recursos</a>
         <a href="/como-funciona/" data-nav="como-funciona">Como funciona</a>
-        <a href="/planos/" data-nav="planos">Planos</a>
         <a href="/dispositivos/" data-nav="dispositivos" aria-current="page">Dispositivos</a>
         <a href="/faq/" data-nav="faq">FAQ</a>
         <a href="/contato/" data-nav="contato">Contato</a>
@@ -117,12 +127,14 @@
                 <div class="ip-view">
 
                   <div class="player">
+                    <img class="player__blur" src="/assets/capas/notas-sobre-notas.webp" alt="" width="640" height="640" decoding="async">
+                    <span class="player__grab"></span>
                     <img class="player__cover" src="/assets/capas/notas-sobre-notas.webp" alt="" width="640" height="640" decoding="async">
-                    <p class="player__prog">Notas sobre Notas #108</p>
-                    <p class="player__ttl">Beady Eye</p>
-                    <div class="wave" data-wave><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-                    <div class="player__ctrl"><span></span><span class="is-main"></span><span></span></div>
-                    <span class="player__mode">Modo áudio</span>
+                    <div class="player__meta"><p class="player__ttl">Beady Eye</p><p class="player__prog">Notas sobre Notas #108</p><span class="player__more"><i></i><i></i><i></i></span></div>
+                    <div class="player__time"><span class="player__track"><i></i></span><span>12:48</span><span>-41:07</span></div>
+                    <div class="player__ctrl"><span class="sk"><svg viewBox="0 0 24 24"><path d="M7 6v12M18 6.5v11L9.5 12z"/></svg></span><span class="is-main"></span><span class="sk"><svg viewBox="0 0 24 24"><path d="M17 6v12M6 6.5v11l8.5-5.5z"/></svg></span></div>
+                    <div class="wave" data-wave><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                    <span class="player__mode"><svg viewBox="0 0 24 24"><path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/></svg>Modo áudio</span>
                   </div>
                             </div>
                 <span class="ip-home"></span>
@@ -174,6 +186,7 @@
     <section class="cta" data-dock-hide aria-labelledby="t-cta">
       <div class="wrap">
         <div class="cta__panel rv">
+          <img class="cta__bg" src="/assets/trincheira-hero.webp" alt="" width="1024" height="700" loading="lazy" decoding="async" aria-hidden="true">
           <div class="cta__goat">
             <div class="typer" data-typer>
             <span class="goat" data-goat aria-hidden="true">

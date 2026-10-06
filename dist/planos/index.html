@@ -17,8 +17,8 @@
   <link rel="preload" href="/fonts/Jersey10-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
   <script>document.documentElement.classList.add("js");</script>
-  <link rel="stylesheet" href="/css/styles.css?v=aac95101">
-  <script src="/js/main.js?v=378d424f" defer></script>
+  <link rel="stylesheet" href="/css/styles.css?v=68f84939">
+  <script src="/js/main.js?v=94cdaea8" defer></script>
 </head>
 <body class="">
   <a class="skip" href="#conteudo">Pular para o conteúdo</a>
@@ -32,17 +32,24 @@
 
         <nav class="nav" aria-label="Principal">
           <a href="/" data-nav="index">Início</a>
+          <a class="nav__live" href="https://app.warbox.tv/live" data-live-chip>Live</a>
           <a href="/canais/" data-nav="canais">Programas</a>
-          <a href="/recursos/" data-nav="recursos">Recursos</a>
-          <a href="/como-funciona/" data-nav="como-funciona">Como funciona</a>
+          <a href="/recursos/#jogos">Jogos</a>
+          <a href="https://app.warbox.tv/rssfeed">RSS Feed</a>
           <a href="/planos/" data-nav="planos" aria-current="page">Planos</a>
-          <a href="/faq/" data-nav="faq">FAQ</a>
+          <div class="nav__more" data-more>
+            <button type="button" aria-expanded="false" aria-controls="nav-more" data-more-btn>Mais<svg viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
+            <div class="nav__drop" id="nav-more">
+              <a href="/recursos/" data-nav="recursos">Recursos</a>
+              <a href="/como-funciona/" data-nav="como-funciona">Como funciona</a>
+              <a href="/dispositivos/" data-nav="dispositivos">Dispositivos</a>
+              <a href="/faq/" data-nav="faq">FAQ</a>
+              <a href="/contato/" data-nav="contato">Contato</a>
+            </div>
+          </div>
         </nav>
 
         <div class="hdr__right">
-          <a class="live-chip" href="https://app.warbox.tv/live" data-live-chip>
-            <span class="live-chip__dot" aria-hidden="true"></span>Ao vivo agora
-          </a>
           <a class="hdr__signin" href="/login/" data-nav="login">Entrar</a>
           <a class="btn btn--primary btn--sm hdr__cta" href="/assinar/">Assine</a>
           <button class="menu" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu" data-menu-btn>
@@ -56,10 +63,13 @@
     <div class="sheet" id="menu" data-menu hidden>
       <nav class="sheet__nav" aria-label="Menu">
         <a href="/" data-nav="index">Início</a>
+        <a class="nav__live" href="https://app.warbox.tv/live">Live</a>
         <a href="/canais/" data-nav="canais">Programas</a>
+        <a href="/recursos/#jogos">Jogos</a>
+        <a href="https://app.warbox.tv/rssfeed">RSS Feed</a>
+        <a href="/planos/" data-nav="planos" aria-current="page">Planos</a>
         <a href="/recursos/" data-nav="recursos">Recursos</a>
         <a href="/como-funciona/" data-nav="como-funciona">Como funciona</a>
-        <a href="/planos/" data-nav="planos" aria-current="page">Planos</a>
         <a href="/dispositivos/" data-nav="dispositivos">Dispositivos</a>
         <a href="/faq/" data-nav="faq">FAQ</a>
         <a href="/contato/" data-nav="contato">Contato</a>
@@ -221,6 +231,7 @@
     <section class="cta" data-dock-hide aria-labelledby="t-cta">
       <div class="wrap">
         <div class="cta__panel rv">
+          <img class="cta__bg" src="/assets/trincheira-hero.webp" alt="" width="1024" height="700" loading="lazy" decoding="async" aria-hidden="true">
           <div class="cta__goat">
             <div class="typer" data-typer>
             <span class="goat" data-goat aria-hidden="true">

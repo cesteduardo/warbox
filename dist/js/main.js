@@ -68,6 +68,17 @@
     window.matchMedia("(min-width: 1100px)").addEventListener("change", (m) => { if (m.matches) setOpen(false); });
   }
 
+  // menu "Mais" do cabeçalho
+  const more = $("[data-more]");
+  if (more) {
+    const btn = $("[data-more-btn]", more);
+    const set = (on) => { more.classList.toggle("is-open", on); btn.setAttribute("aria-expanded", String(on)); };
+    btn.addEventListener("click", (e) => { e.stopPropagation(); set(!more.classList.contains("is-open")); });
+    document.addEventListener("click", (e) => { if (!more.contains(e.target)) set(false); });
+    document.addEventListener("keydown", (e) => { if (e.key === "Escape") set(false); });
+    if ($("a[aria-current]", more)) btn.setAttribute("aria-current", "page");
+  }
+
   // Chip "Ao vivo agora": no app real ele depende de /api/live/status.
   const IS_LIVE = true;
   $$("[data-live-chip]").forEach((c) => { if (!IS_LIVE) c.hidden = true; });
@@ -461,10 +472,7 @@
   /* ---------- 13. Time: vídeos só carregam quando aparecem ---------- */
   $$(".mate__media video[data-src]").forEach((v) => {
     v.addEventListener("error", () => v.remove());
-    // a moldura assume a proporção real do vídeo: nada é cortado
-    v.addEventListener("loadedmetadata", () => {
-      if (v.videoWidth && v.videoHeight) v.parentElement.style.setProperty("--ar", `${v.videoWidth} / ${v.videoHeight}`);
-    });
+    v.addEventListener("loadeddata", () => v.parentElement.classList.add("has-video"));
     if (reduceMotion) return;
     let loaded = false;
     onVisible(v, (vis) => {
