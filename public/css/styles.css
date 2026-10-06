@@ -1586,3 +1586,24 @@ body {
 @media (max-width: 720px) {
   .stacked main > section + section, .stacked main > .marquee + section, .stacked main > section + .marquee { border-radius: 28px 28px 0 0; }
 }
+
+/* ---------- Time Warbox: os quatro numa linha, mesma proporção, vídeo inteiro ---------- */
+.team { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.mate { gap: 16px; }
+.mate__media { aspect-ratio: 4 / 5; border-radius: var(--r-lg); }
+.mate__media video { object-fit: contain; }
+.mate__media::before { font-size: clamp(90px, 9vw, 140px); background-size: 40% auto; }
+.mate__name { font-size: clamp(30px, 2.6vw, 40px); }
+.mate__role { font-size: 15px; }
+@media (max-width: 1023px) and (min-width: 721px) { .team { gap: 16px; } .mate__role { font-size: 14px; } }
+@media (max-width: 720px) {
+  /* no celular, a mesma linha vira uma faixa que desliza para o lado */
+  .team {
+    grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: 72%;
+    gap: 16px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain;
+    margin-inline: calc(var(--gutter) * -1); padding: 4px var(--gutter) 12px; scroll-padding-inline: var(--gutter);
+    scrollbar-width: none;
+  }
+  .team::-webkit-scrollbar { display: none; }
+  .team > li { scroll-snap-align: start; }
+}
