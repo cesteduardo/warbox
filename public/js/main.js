@@ -108,7 +108,7 @@
         targets.get(e.target).forEach((el) => el.classList.add("is-in"));
         ro.unobserve(e.target);
       });
-    }, { threshold: 0, rootMargin: "0px 0px -10% 0px" });
+    }, { threshold: 0, rootMargin: window.innerWidth < 720 ? "0px 0px 8% 0px" : "0px 0px -10% 0px" });
     targets.forEach((_, t) => ro.observe(t));
   }
 
@@ -630,7 +630,10 @@
 
   /* ---------- 15. Seções empilhadas na rolagem ---------- */
   const stack = $$("main > section, main > .marquee");
-  if (stack.length > 1 && !reduceMotion && CSS.supports("position", "sticky")) {
+  // só em telas largas: no celular as seções são mais altas que a tela e a barra
+  // de endereço muda a altura durante a rolagem, então o efeito atrapalharia
+  const wideScreen = window.matchMedia("(min-width: 901px) and (min-height: 600px)");
+  if (stack.length > 1 && !reduceMotion && wideScreen.matches && CSS.supports("position", "sticky")) {
     document.documentElement.classList.add("stacked");
     stack.forEach((s) => { const sh = document.createElement("span"); sh.className = "stack-shade"; sh.setAttribute("aria-hidden", "true"); s.appendChild(sh); });
     // cola cada seção quando o FIM dela chega ao rodapé da tela: nada fica escondido

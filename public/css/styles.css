@@ -1718,3 +1718,61 @@ body {
   .ftr__base { grid-template-columns: 1fr; justify-items: start; padding-bottom: 110px; }
   .ftr__pay, .ftr__credit { justify-self: start; }
 }
+
+/* ---------- Ajustes de celular ---------- */
+@media (max-width: 720px) {
+  .sec { padding-block: 64px; }
+  .sec__head { margin-bottom: 28px; gap: 12px; }
+  .cta { padding-block: 24px 72px; }
+  .phero { padding: 32px 0 48px; }
+  body { background-attachment: scroll; }
+  .js .a-title.is-in { animation-duration: .45s; }
+  .rss-chip { display: none; }
+  .rss-stage { padding: 12px 0 0; }
+  .signal::before { left: -170px; top: -170px; width: 340px; height: 340px; }
+  .hero { padding-bottom: 56px; }
+  .stage { padding: 6px 10% 28px 0; }
+  .stage__base { margin-top: 12px; }
+  .phone-wrap { display: none; }
+  .feature__grid { gap: 32px; }
+  .feature__copy .quote { font-size: 24px; }
+  .eps { gap: 16px; }
+  .reasons { gap: 28px; margin-top: 36px; }
+  .manifesto__text { font-size: clamp(38px, 11vw, 56px); }
+  .toc { padding-bottom: 4px; }
+  .plans { gap: 24px; }
+  .plan__price { font-size: 68px; }
+  .faq__item summary { font-size: 16.5px; gap: 14px; }
+  .faq__icon { width: 36px; height: 36px; }
+  .help { padding: 22px; }
+  .help__mail { font-size: 15px; }
+  .cta__panel { padding: 24px 20px 28px; border-radius: var(--r-lg); }
+  .cta__title { font-size: clamp(44px, 12vw, 60px); }
+  .dock { left: 10px; right: 10px; padding-left: 16px; }
+  .dock__txt span { font-size: 11px; }
+  .ftr__grid { padding-top: 36px; gap: 32px 20px; }
+  .steps { gap: 12px; }
+  .step { gap: 16px 18px; }
+  .step__title { font-size: 36px; }
+  .contact__mail { font-size: clamp(30px, 9vw, 44px); }
+  .checkout { padding-top: 20px; }
+  .auth { padding-top: 20px; }
+}
+@media (max-width: 380px) {
+  :root { --gutter: 14px; }
+  .btn--lg { font-size: 20px; padding-inline: 18px; }
+  .facts strong { font-size: 30px; }
+  .hero__title { font-size: 54px; }
+}
+/* toque: sem estados de hover presos depois do toque */
+@media (hover: none) {
+  .btn:hover { --lift: 0px; filter: none; }
+  .cover:hover .cover__img, .plan:hover, .tv:hover, .fan:hover img { transform: none; }
+}
+
+/* menu mobile compacto: todos os itens e os botões cabem na tela */
+.sheet { padding-top: calc(var(--hdr-h) + 24px); gap: 16px; }
+.sheet__nav a { padding: 9px 4px; font-size: 30px; }
+.sheet__actions { position: sticky; bottom: 0; padding-top: 12px; background: linear-gradient(to bottom, transparent, rgba(3,5,7,.97) 30%); }
+.sheet__actions .btn { min-height: 52px; }
+@media (max-height: 700px) { .sheet__nav a { padding-block: 6px; font-size: 26px; } }
