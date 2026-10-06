@@ -222,12 +222,16 @@ bodyClass: page-home
 
     <!-- 05 · REDUÇÃO DE OBJEÇÕES ===================================== -->
     <section class="sec" id="duvidas" aria-labelledby="t-faq">
-      <div class="wrap faq__grid">
-        <div class="faq__side">
+      <div class="wrap">
+        <div class="sec__head">
           <h2 class="h2 a-title" id="t-faq">Perguntas frequentes</h2>
-          {{> help}}
         </div>
-        {{> faq}}
+        <div class="faq__grid">
+          {{> faq}}
+          <div class="faq__side">
+            {{> help}}
+          </div>
+        </div>
       </div>
     </section>
 

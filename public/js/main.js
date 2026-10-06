@@ -628,6 +628,31 @@
     drawScene(3); drawGoat();
   }
 
+  /* ---------- 15. Seções empilhadas na rolagem ---------- */
+  const stack = $$("main > section, main > .marquee");
+  if (stack.length > 1 && !reduceMotion && CSS.supports("position", "sticky")) {
+    document.documentElement.classList.add("stacked");
+    stack.forEach((s) => { const sh = document.createElement("span"); sh.className = "stack-shade"; sh.setAttribute("aria-hidden", "true"); s.appendChild(sh); });
+    // cola cada seção quando o FIM dela chega ao rodapé da tela: nada fica escondido
+    const layout = () => stack.forEach((s) => { s.style.top = `${Math.min(0, window.innerHeight - s.offsetHeight)}px`; });
+    let ticking = false;
+    const paint = () => {
+      ticking = false;
+      const vh = window.innerHeight;
+      stack.forEach((s, i) => {
+        const next = stack[i + 1];
+        let p = 0;
+        if (next) p = Math.min(1, Math.max(0, (vh - next.getBoundingClientRect().top) / vh));
+        s.style.setProperty("--cover", p.toFixed(3));
+      });
+    };
+    const onScroll = () => { if (!ticking) { ticking = true; requestAnimationFrame(paint); } };
+    layout(); paint();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", () => { layout(); paint(); });
+    if ("ResizeObserver" in window) { const ro = new ResizeObserver(() => { layout(); paint(); }); stack.forEach((s) => ro.observe(s)); }
+  }
+
   const year = $("[data-year]");
   if (year) year.textContent = new Date().getFullYear();
 })();
