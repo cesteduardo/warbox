@@ -1698,9 +1698,13 @@ body {
 .cta__goat .typer__bubble { background: none; }
 .cta__goat .typer__live { background: rgba(3, 5, 7, .7); }
 
-/* ---------- Crédito GR Brands ---------- */
-.ftr__credit { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 18px 0 30px; border-top: 1.5px solid var(--stroke); font-size: 13px; color: var(--dim); }
-.ftr__credit img { height: 20px; width: auto; opacity: .75; transition: opacity .2s; }
-.ftr__credit:hover img { opacity: 1; }
+/* ---------- Crédito GR Brands (igual à marca d'água do GR Frames) ---------- */
+.ftr__credit { display: flex; align-items: center; justify-content: center; gap: 7px; padding: 18px 0 30px; border-top: 1.5px solid var(--stroke); font: 500 13px / 1 var(--sans); color: var(--dim); transition: color .2s; }
+.ftr__credit span:first-child { margin-right: 3px; }
+.ftr__credit img { width: 18px; height: 18px; filter: invert(1); opacity: .9; }
+.ftr__credit b { font: 600 17px / 1 "Inter", sans-serif; color: #fff; opacity: .9; }
+.ftr__credit .gr-dot { color: #E3362E; }
+.ftr__credit:hover { color: var(--muted); }
+.ftr__credit:hover b, .ftr__credit:hover img { opacity: 1; }
 .ftr__base { padding-bottom: 20px; }
 @media (max-width: 899px) { .ftr__base { padding-bottom: 20px; } .ftr__credit { padding-bottom: 110px; } }

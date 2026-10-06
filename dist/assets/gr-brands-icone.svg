@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="22.5 22 84 84" width="84" height="84" role="img" aria-label="GRBrands">
+  <title>GRBrands</title>
+  <g transform="translate(25.30,24.00)"><g transform="scale(1.00125) translate(-16.0,-8.2)"><defs>
+    <clipPath id="et"><rect x="-60" y="-60" width="220" height="107"/></clipPath>
+    <clipPath id="eb"><rect x="-60" y="53" width="220" height="160"/></clipPath>
+  </defs>
+  <g fill="#0E0E10" transform="rotate(-22 50 50)">
+    <g clip-path="url(#et)"><circle cx="50" cy="50" r="38" transform="translate(10,0)"/></g>
+    <g clip-path="url(#eb)"><circle cx="50" cy="50" r="38"/></g>
+  </g></g></g>
+</svg>
