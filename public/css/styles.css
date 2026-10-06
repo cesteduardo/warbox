@@ -1793,3 +1793,22 @@ body {
     border-radius: 12px; font-size: 18px; letter-spacing: .1em;
   }
 }
+
+/* ---------- Header no mesmo conceito da barra de assinatura ----------
+   Cantos arredondados (não pílula), fundo levemente azulado, contorno firme
+   e o botão Assine encaixado com o mesmo respiro em cima, embaixo e à direita. */
+.hdr__bar {
+  height: auto; min-height: 64px;
+  padding: 10px 10px 10px 18px; border-radius: 22px;
+  background: linear-gradient(180deg, rgba(14, 26, 38, .92), rgba(6, 10, 15, .92));
+  border: 0;
+  box-shadow: 0 0 0 1.5px var(--stroke-c), 0 18px 40px -16px rgba(0, 0, 0, .95), 0 0 30px -12px rgba(14, 165, 233, .4);
+}
+.hdr.is-scrolled .hdr__bar { background: linear-gradient(180deg, rgba(14, 26, 38, .97), rgba(6, 10, 15, .97)); }
+.hdr__right { gap: 10px; }
+.hdr__cta.btn { min-height: 42px; padding: 0 18px 2px; margin: 3px; border-radius: 12px; font-size: 18px; letter-spacing: .1em; }
+.menu { width: 44px; height: 44px; border-radius: 12px; margin: 3px; background: rgba(255, 255, 255, .05); border: 1.5px solid var(--stroke-2); }
+.nav > a, .nav__more > button { border-radius: 10px; }
+.hdr__logo img { height: 36px; }
+@media (max-width: 400px) { .hdr__cta { display: inline-flex; } .hdr__cta.btn { font-size: 16px; padding-inline: 14px; min-height: 40px; } }
+@media (max-width: 340px) { .hdr__cta { display: none; } }
