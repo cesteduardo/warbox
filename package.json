@@ -1,0 +1,15 @@
+{
+  "name": "warbox-site",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Site institucional e comercial da Warbox TV",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "start": "node build.mjs && node serve.mjs",
+    "serve": "node serve.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

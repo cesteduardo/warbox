@@ -1,0 +1,66 @@
+---
+title: Planos — Warbox TV
+description: Planos da Trincheira: três jeitos de apoiar — do meme ao magnata. Plano Pika por R$ 21,90/mês, sem fidelidade. PIX, cartão ou cripto.
+nav: planos
+---
+    <section class="phero phero--center" aria-labelledby="t-planos">
+      <div class="wrap">
+        <p class="eyebrow rv">Planos</p>
+        <h1 class="display a-title" id="t-planos">Planos da Trincheira</h1>
+        <p class="phero__lead rv">Três jeitos de apoiar — do meme ao magnata.</p>
+        <ul class="ticks rv">
+          <li><strong>0</strong> fidelidade: cancela quando quiser</li>
+          <li><strong>PIX</strong> pagamento instantâneo</li>
+          <li><strong>8</strong> programas no ar</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sec sec--flush" data-dock-hide aria-label="Escolha seu plano">
+      <div class="wrap">
+        {{> plans}}
+      </div>
+    </section>
+
+    <!-- o que vem no plano recomendado -->
+    <section class="sec sec--tint" aria-labelledby="t-arsenal">
+      <div class="wrap split">
+        <div class="split__copy">
+          <p class="eyebrow rv">Plano Pika</p>
+          <h2 class="h2 a-title" id="t-arsenal">O arsenal</h2>
+          <p class="sec__lead rv">O que você leva no Plano Pika.</p>
+          <ul class="checks rv">
+            <li><strong>Programas completos</strong> Pauta Mole, Os Fera Neném e todos os outros, do começo ao fim.</li>
+            <li><strong>Comentário ao vivo</strong> Comenta durante a live e nos episódios antigos. Sua opinião é irrelevante, mas comente mesmo assim.</li>
+            <li><strong>Super Comentário</strong> Doe um valor no PIX, no cartão ou em cripto e rankeie no chat.</li>
+            <li><strong>WARBOX.FM</strong> Aperta o play e a rádio sorteia um episódio do acervo. Acabou, vem outro.</li>
+            <li><strong>RSS no seu app</strong> Seu feed privado pra ouvir no app de podcast que você já usa.</li>
+            <li><strong>Modo áudio</strong> Troca o vídeo pelo áudio e escuta no trânsito, na academia, no trabalho.</li>
+          </ul>
+          <div class="split__actions rv">
+            <a class="btn btn--primary btn--lg" href="https://app.warbox.tv/planos">Assinar Plano Pika {{> i-arrow}}</a>
+            <a class="link" href="/recursos/">O arsenal {{> i-arrow}}</a>
+          </div>
+        </div>
+        <div class="split__art rv" aria-hidden="true">
+          <div class="stack">
+            <img class="stack__a" src="/assets/episodios/pm-36.webp" alt="" width="960" height="540" loading="lazy" decoding="async">
+            <img class="stack__b" src="/assets/episodios/notas-108.webp" alt="" width="960" height="540" loading="lazy" decoding="async">
+            <img class="stack__c" src="/assets/episodios/ofn-55.webp" alt="" width="960" height="540" loading="lazy" decoding="async">
+            <span class="stack__price"><small>Plano Pika</small>R$ 21,90<small>/mês</small></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="t-faq">
+      <div class="wrap faq__grid">
+        <div class="faq__side">
+          <h2 class="h2 a-title" id="t-faq">Perguntas frequentes</h2>
+          {{> help}}
+        </div>
+        {{> faq}}
+      </div>
+    </section>
+
+    {{> cta}}

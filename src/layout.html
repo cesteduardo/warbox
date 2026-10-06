@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+  <link rel="canonical" href="{{canonical}}">
+  <meta name="theme-color" content="#030507">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Warbox TV">
+  <meta property="og:title" content="{{title}}">
+  <meta property="og:description" content="{{description}}">
+  <meta property="og:url" content="{{canonical}}">
+  <meta property="og:image" content="/assets/episodios/ofn-55.webp">
+  <link rel="icon" href="/assets/cabra-a.svg" type="image/svg+xml">
+  <link rel="preload" href="/fonts/Jersey10-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/Inter-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <script>document.documentElement.classList.add("js");</script>
+  <link rel="stylesheet" href="/css/styles.css?v={{v:css/styles.css}}">
+  <script src="/js/main.js?v={{v:js/main.js}}" defer></script>
+</head>
+<body class="{{bodyClass}}">
+  <a class="skip" href="#conteudo">Pular para o conteúdo</a>
+
+  {{> header}}
+
+  <main id="conteudo">
+{{content}}
+  </main>
+
+  {{> footer}}
+
+  <!-- barra fixa de assinatura (celular) -->
+  <div class="dock" data-dock>
+    <div class="dock__txt"><strong>Plano Pika</strong><span>R$ 21,90/mês · cancela quando quiser</span></div>
+    <a class="btn btn--primary btn--sm" href="/assinar/">Assinar</a>
+  </div>
+</body>
+</html>

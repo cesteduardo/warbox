@@ -1,0 +1,118 @@
+---
+title: Assinar — Warbox TV
+description: Entra logo pra trincheira. Escolhe um plano, cria tua conta e vem fazer parte da guerra cultural mais divertida da internet. Plano Pika por R$ 21,90/mês.
+nav: assinar
+bodyClass: page-checkout
+---
+    <section class="checkout" data-dock-hide aria-labelledby="t-sign">
+      <div class="wrap checkout__grid">
+        <div class="checkout__main">
+          {{> goat-typer}}
+          <h1 class="display display--md a-title" id="t-sign">Entra logo pra trincheira</h1>
+          <p class="phero__lead rv">Escolhe um plano, cria tua conta e vem fazer parte da guerra cultural mais divertida da internet.</p>
+
+          <fieldset class="pick rv" data-pick>
+            <legend class="pick__legend">Planos da Trincheira</legend>
+
+            <label class="opt opt--pika">
+              <input type="radio" name="plano" value="pika" checked data-cta="Assinar Plano Pika">
+              <span class="opt__art"><img src="/assets/planos/pika.webp" alt="" width="600" height="704" decoding="async"></span>
+              <span class="opt__txt"><span class="opt__tag">Plano Pika</span><span class="opt__name">Pika</span></span>
+              <span class="opt__price"><b>R$ 21,90</b>/mês</span>
+              <span class="opt__badge">Mais popular</span>
+              <span class="opt__radio" aria-hidden="true"></span>
+            </label>
+
+            <label class="opt opt--chefia">
+              <input type="radio" name="plano" value="chefia" data-cta="Virar Chefia">
+              <span class="opt__art"><img src="/assets/planos/chefia.webp" alt="" width="600" height="704" loading="lazy" decoding="async"></span>
+              <span class="opt__txt"><span class="opt__tag">Magnatas</span><span class="opt__name">Chefia</span></span>
+              <span class="opt__price"><b>R$ 120</b>/mês</span>
+              <span class="opt__radio" aria-hidden="true"></span>
+            </label>
+
+            <label class="opt opt--coco">
+              <input type="radio" name="plano" value="coco" data-cta="Ficar no muro">
+              <span class="opt__art"><img src="/assets/planos/coco.webp" alt="" width="600" height="704" loading="lazy" decoding="async"></span>
+              <span class="opt__txt"><span class="opt__tag">Plano Meme</span><span class="opt__name">Cocô do Cavalo do Bandido</span></span>
+              <span class="opt__price"><b>R$ 0</b>/mês</span>
+              <span class="opt__radio" aria-hidden="true"></span>
+            </label>
+          </fieldset>
+
+          <a class="btn btn--primary btn--lg btn--block checkout__go rv" href="https://app.warbox.tv/planos" data-pick-cta><span data-pick-label>Assinar Plano Pika</span> {{> i-arrow}}</a>
+          <p class="cta__note rv"><span class="dot" aria-hidden="true"></span><strong>0</strong> fidelidade: cancela quando quiser</p>
+          <p class="checkout__login rv">Eu já era assinante. <a class="link" href="/login/">Entrar {{> i-arrow}}</a></p>
+        </div>
+
+        <aside class="summary rv" aria-live="polite">
+          <div class="summary__panel" data-panel="pika">
+            <div class="summary__art"><img src="/assets/planos/pika.webp" alt="Ilustração em pixel art: um soldado musculoso fazendo pose" width="600" height="704" decoding="async"></div>
+            <div class="summary__body">
+              <p class="plan__tag plan__tag--hot">Plano Pika</p>
+              <p class="summary__price"><span>R$</span>21,90<small>/mês</small></p>
+              <ul class="plan__list">
+                <li>Pika</li>
+                <li>Ajuda o site a crescer</li>
+                <li>Pauta Mole, Os Fera Neném e todos os outros programas</li>
+                <li>Pode comentar ao vivo e nos episódios antigos</li>
+              </ul>
+              <p class="summary__desc">O plano certo pra quem quer rir, acompanhar tudo e bancar a munição.</p>
+            </div>
+          </div>
+          <div class="summary__panel summary__panel--gold" data-panel="chefia" hidden>
+            <div class="summary__art"><img src="/assets/planos/chefia.webp" alt="Ilustração em pixel art: um magnata num iate cercado de amigas" width="600" height="704" loading="lazy" decoding="async"></div>
+            <div class="summary__body">
+              <p class="plan__tag plan__tag--gold">Magnatas</p>
+              <p class="summary__price"><span>R$</span>120<small>/mês</small></p>
+              <ul class="plan__list">
+                <li>Bem-sucedido</li>
+                <li>Quer ajudar mais ainda o site</li>
+                <li>Pode escolher cores diferentes no nickname</li>
+                <li>Muito obrigado</li>
+              </ul>
+              <p class="summary__desc">Pra quem quer ser o cara que bancou a guerra inteira e ainda saiu rindo.</p>
+            </div>
+          </div>
+          <div class="summary__panel" data-panel="coco" hidden>
+            <div class="summary__art"><img src="/assets/planos/coco.webp" alt="Ilustração em pixel art: um lurker comendo na frente do computador" width="600" height="704" loading="lazy" decoding="async"></div>
+            <div class="summary__body">
+              <p class="plan__tag">Plano Meme</p>
+              <p class="summary__price"><span>R$</span>0<small>/mês</small></p>
+              <ul class="plan__list">
+                <li class="no">Quase nenhum conteúdo liberado</li>
+                <li class="no">Não pode comentar</li>
+                <li class="no">Não é chad</li>
+              </ul>
+              <p class="summary__desc">Perfeito pra quem quer só espiar a trincheira e ainda não decidiu entrar na guerra.</p>
+            </div>
+          </div>
+          {{> pay}}
+        </aside>
+      </div>
+    </section>
+
+    <section class="sec sec--tint" aria-labelledby="t-how">
+      <div class="wrap">
+        <div class="sec__head">
+          <h2 class="h2 a-title" id="t-how">Como funciona</h2>
+          <a class="link" href="/como-funciona/">Como funciona {{> i-arrow}}</a>
+        </div>
+        <ol class="flow">
+          <li class="rv"><span>1</span>Escolha seu plano</li>
+          <li class="rv"><span>2</span>Faça sua assinatura</li>
+          <li class="rv"><span>3</span>Acesse a plataforma</li>
+          <li class="rv"><span>4</span>Comece a assistir</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="t-faq">
+      <div class="wrap faq__grid">
+        <div class="faq__side">
+          <h2 class="h2 a-title" id="t-faq">Perguntas frequentes</h2>
+          {{> help}}
+        </div>
+        {{> faq}}
+      </div>
+    </section>
