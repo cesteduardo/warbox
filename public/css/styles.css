@@ -1697,3 +1697,10 @@ body {
 }
 .cta__goat .typer__bubble { background: none; }
 .cta__goat .typer__live { background: rgba(3, 5, 7, .7); }
+
+/* ---------- Crédito GR Brands ---------- */
+.ftr__credit { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 18px 0 30px; border-top: 1.5px solid var(--stroke); font-size: 13px; color: var(--dim); }
+.ftr__credit img { height: 20px; width: auto; opacity: .75; transition: opacity .2s; }
+.ftr__credit:hover img { opacity: 1; }
+.ftr__base { padding-bottom: 20px; }
+@media (max-width: 899px) { .ftr__base { padding-bottom: 20px; } .ftr__credit { padding-bottom: 110px; } }
