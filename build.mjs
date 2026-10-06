@@ -24,7 +24,10 @@ import { fileURLToPath } from "node:url";
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const SRC = join(ROOT, "src");
 const PUBLIC = join(ROOT, "public");
-const DIST = join(ROOT, "dist");
+// node build.mjs           → dist/          (hospedagem, URLs limpas)
+// node build.mjs --local   → dist-local/    (abre com duplo clique no index.html)
+const LOCAL = process.argv.includes("--local");
+const DIST = join(ROOT, LOCAL ? "dist-local" : "dist");
 const SITE_URL = "https://warbox.tv";
 
 const read = (p) => readFile(p, "utf8");
@@ -55,6 +58,18 @@ function include(html, partials, depth = 0) {
   return html.replace(/\{\{>\s*([\w-]+)\s*\}\}/g, (_, name) => {
     if (!(name in partials)) throw new Error(`Partial não encontrado: ${name}`);
     return include(partials[name], partials, depth + 1);
+  });
+}
+
+// troca caminhos absolutos ("/planos/", "/assets/x.webp") por relativos e
+// aponta pastas para o index.html, para funcionar abrindo direto do disco
+function relativize(html, depth) {
+  const up = "../".repeat(depth);
+  return html.replace(/(href|src)="\/(?!\/)([^"]*)"/g, (_, attr, rest) => {
+    const [path, hash = ""] = rest.split("#");
+    let p = path.split("?")[0] === "" || path.endsWith("/") ? `${path}index.html` : path;
+    if (path.includes("?")) p = path;
+    return `${attr}="${up}${p}${hash ? "#" + hash : ""}"`;
   });
 }
 
@@ -102,6 +117,10 @@ async function main() {
     const leftovers = html.match(/\{\{[^}]*\}\}/g);
     if (leftovers) throw new Error(`${slug}: marcações não resolvidas ${[...new Set(leftovers)].join(", ")}`);
 
+    // fontes pré-carregadas falham em file:// (CORS); o CSS já as carrega
+    if (LOCAL) html = html.replace(/\s*<link rel="preload"[^>]*>/g, "");
+    if (LOCAL) html = relativize(html, slug === "index" || slug === "404" ? 0 : slug.split("/").length);
+
     const out = slug === "index" || slug === "404" ? join(DIST, `${slug}.html`) : join(DIST, slug, "index.html");
     await mkdir(dirname(out), { recursive: true });
     await writeFile(out, html);
@@ -116,7 +135,7 @@ async function main() {
   await writeFile(join(DIST, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${SITE_URL}/sitemap.xml\n`);
 
   const size = (await stat(join(DIST, "css/styles.css"))).size + (await stat(join(DIST, "js/main.js"))).size;
-  console.log(`\n✓ ${pages.length} páginas geradas em dist/ (CSS+JS: ${(size / 1024).toFixed(1)} KB sem gzip)`);
+  console.log(`\n✓ ${pages.length} páginas geradas em ${relative(ROOT, DIST)}/ (CSS+JS: ${(size / 1024).toFixed(1)} KB sem gzip)`);
 }
 
 main().catch((e) => {

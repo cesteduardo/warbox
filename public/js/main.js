@@ -14,6 +14,8 @@
   "use strict";
 
   /* ---------- 1. Utilidades ---------- */
+  // raiz do site, deduzida do próprio script: funciona em hospedagem e abrindo o arquivo local
+  const BASE = (document.currentScript && document.currentScript.src.replace(/js\/main\.js.*$/, "")) || "/";
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -264,8 +266,8 @@
   const wall = $("[data-wall]");
   if (wall && !reduceMotion) {
     const cells = $$(".tv", wall);
-    const src = (k) => `/assets/episodios/${k}.webp`;
-    const showing = () => new Set($$("img", wall).map((img) => img.getAttribute("src")));
+    const src = (k) => `${BASE}assets/episodios/${k}.webp`;
+    const showing = () => new Set($$("img", wall).map((img) => img.src));
     let preloaded = false;
 
     const noise = (cv) => {
@@ -447,7 +449,7 @@
     const scoreEl = $("[data-score]");
     const bestEl = $("[data-best]");
 
-    const frames = ["/assets/cabra-a.svg", "/assets/cabra-b.svg"].map((s) => { const i = new Image(); i.src = s; return i; });
+    const frames = ["cabra-a", "cabra-b"].map((s) => { const i = new Image(); i.src = `${BASE}assets/${s}.svg`; return i; });
 
     let best = 0;
     try { best = Number(localStorage.getItem("corre-cabra-best")) || 0; } catch (e) { /* sem storage */ }
