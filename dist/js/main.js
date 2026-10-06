@@ -190,7 +190,7 @@
 
   /* ---------- 5. WARBOX.FM ---------- */
   const EPISODES = [
-    "Os Fera Neném #55 — Papo de Ferro", "Os Fera Neném #54", "Os Fera Neném #53", "Os Fera Neném #52",
+    "Os Fera Neném #55: Papo de Ferro", "Os Fera Neném #54", "Os Fera Neném #53", "Os Fera Neném #52",
     "Os Fera Neném #48", "Os Fera Neném #39", "Pauta Mole #36", "Pauta Mole #006",
     "Notas sobre Notas #108", "Notas sobre Notas #107", "Cagando e Andando", "Trincheira",
   ];
@@ -307,21 +307,72 @@
     const upd = () => { clock.textContent = "BRT " + fmt.format(new Date()); };
     upd(); setInterval(upd, 1000);
   }
+  // relógio dos aparelhos (barra de status do iPhone, menu do Mac)
+  const shorts = $$("[data-clock-short]");
+  if (shorts.length) {
+    const f = new Intl.DateTimeFormat("pt-BR", { hour: "2-digit", minute: "2-digit", timeZone: "America/Sao_Paulo" });
+    const upd = () => { const t = f.format(new Date()); shorts.forEach((el) => { el.textContent = t; }); };
+    upd(); setInterval(upd, 30000);
+  }
 
   /* ---------- 9. Manifesto e passos acompanham a rolagem ---------- */
   const scrollers = [];
+  /* Manifesto: digitado uma vez quando entra na tela, com as palavras-chave em ciano.
+     O texto inteiro fica invisível por baixo e reserva a altura final. */
   const manifesto = $("[data-words]");
   if (manifesto) {
-    const words = splitWords(manifesto);
-    words.forEach((w) => { if (/independente|teimosia/i.test(w.textContent)) w.classList.add("hot"); });
-    if (reduceMotion) words.forEach((w) => w.classList.add("lit"));
-    else scrollers.push(() => {
-      const r = manifesto.getBoundingClientRect();
-      const vh = window.innerHeight;
-      const p = Math.min(1, Math.max(0, (vh * 0.85 - r.top) / (r.height + vh * 0.3)));
-      const n = Math.round(p * words.length);
-      words.forEach((w, i) => w.classList.toggle("lit", i < n));
-    });
+    const full = manifesto.textContent.trim().replace(/\s+/g, " ");
+    const HOT = /^(independente|teimosia)/i;
+    const ghost = document.createElement("span");
+    ghost.className = "manifesto__ghost";
+    ghost.setAttribute("aria-hidden", "true");
+    ghost.textContent = full;
+    const live = document.createElement("span");
+    live.setAttribute("aria-hidden", "true");
+    const sr = document.createElement("span");
+    sr.className = "sr-only";
+    sr.textContent = full;
+    const caret = document.createElement("span");
+    caret.className = "caret";
+    manifesto.textContent = "";
+    manifesto.append(sr, ghost, live);
+
+    // pedaços com a marcação de destaque
+    const parts = full.split(/(\s+)/).map((t) => ({ t, hot: HOT.test(t) }));
+    const render = (n) => {
+      live.textContent = "";
+      let left = n;
+      for (const p of parts) {
+        if (left <= 0) break;
+        const chunk = p.t.slice(0, left);
+        left -= p.t.length;
+        if (p.hot) { const h = document.createElement("span"); h.className = "hot"; h.textContent = chunk; live.appendChild(h); }
+        else live.appendChild(document.createTextNode(chunk));
+      }
+      live.appendChild(caret);
+    };
+
+    if (reduceMotion || !hasIO) { render(full.length); manifesto.classList.add("is-done"); }
+    else {
+      render(0);
+      let started = false;
+      const o = new IntersectionObserver(([e]) => {
+        if (!e.isIntersecting || started) return;
+        started = true; o.disconnect();
+        let n = 0;
+        const tick = () => {
+          n++;
+          render(n);
+          if (n >= full.length) { manifesto.classList.add("is-done"); return; }
+          const ch = full[n - 1];
+          let d = 26 + Math.random() * 30;
+          if (/[.!?]/.test(ch)) d += 420; else if (ch === ",") d += 160;
+          setTimeout(tick, d);
+        };
+        setTimeout(tick, 350);
+      }, { threshold: 0.4 });
+      o.observe(manifesto);
+    }
   }
   const steps = $("[data-steps]");
   if (steps) {
@@ -385,24 +436,6 @@
   });
 
   /* ---------- 12. Carrossel, letreiro, chat e onda ---------- */
-  $$("[data-carousel-nav]").forEach((nav) => {
-    const track = $(`[data-carousel="${nav.dataset.carouselNav}"]`);
-    if (!track) return;
-    const [prev, next] = $$("button", nav);
-    const step = () => (track.firstElementChild?.getBoundingClientRect().width || 280) * 2 + 36;
-    nav.addEventListener("click", (e) => {
-      const b = e.target.closest("button");
-      if (b) track.scrollBy({ left: step() * Number(b.dataset.dir), behavior: reduceMotion ? "auto" : "smooth" });
-    });
-    const upd = () => {
-      prev.disabled = track.scrollLeft < 4;
-      next.disabled = track.scrollLeft + track.clientWidth > track.scrollWidth - 4;
-    };
-    track.addEventListener("scroll", upd, { passive: true });
-    window.addEventListener("resize", upd);
-    upd();
-  });
-
   $$(".marquee__track").forEach((t) => {
     [...t.children].forEach((c) => { const k = c.cloneNode(true); k.setAttribute("aria-hidden", "true"); t.appendChild(k); });
   });
@@ -428,6 +461,10 @@
   /* ---------- 13. Time: vídeos só carregam quando aparecem ---------- */
   $$(".mate__media video[data-src]").forEach((v) => {
     v.addEventListener("error", () => v.remove());
+    // a moldura assume a proporção real do vídeo: nada é cortado
+    v.addEventListener("loadedmetadata", () => {
+      if (v.videoWidth && v.videoHeight) v.parentElement.style.setProperty("--ar", `${v.videoWidth} / ${v.videoHeight}`);
+    });
     if (reduceMotion) return;
     let loaded = false;
     onVisible(v, (vis) => {

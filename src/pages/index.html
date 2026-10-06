@@ -1,11 +1,12 @@
 ---
-title: Warbox TV — a trincheira mais divertida da internet
-description: Uma caixa de guerra cultural, humor e podcasts. Os Fera Neném, Pauta Mole, Notas sobre Notas, Trincheira e mais — completos, ao vivo e no seu feed. Plano Pika por R$ 21,90/mês.
+title: Warbox TV | A trincheira mais divertida da internet
+description: Uma caixa de guerra cultural, humor e podcasts. Os Fera Neném, Pauta Mole, Notas sobre Notas, Trincheira e mais: completos, ao vivo e no seu feed. Plano Pika por R$ 21,90/mês.
 nav: index
 bodyClass: page-home
 ---
     <!-- 01 · ATENÇÃO ================================================= -->
     <section class="hero" aria-labelledby="t-hero">
+      <div class="hero__bg" aria-hidden="true"><img src="/assets/trincheira-hero.webp" alt="" width="1600" height="900" decoding="async"></div>
       <div class="wrap hero__grid">
         <div class="hero__copy">
           {{> goat-typer}}
@@ -13,7 +14,7 @@ bodyClass: page-home
           <h1 class="hero__title" id="t-hero" data-split>A trincheira mais divertida da internet.</h1>
           <p class="hero__lead rv" style="--d:.45s">
             Uma caixa de guerra cultural, humor e podcasts. Episódios completos,
-            lives com chat, rádio e o acervo inteiro dos programas — tudo num lugar só.
+            lives com chat, rádio e o acervo inteiro dos programas, tudo num lugar só.
           </p>
           <div class="hero__ctas rv" style="--d:.55s">
             <a class="btn btn--primary btn--lg" href="/assinar/">Assinar por R$ 21,90/mês {{> i-arrow}}</a>
@@ -26,26 +27,50 @@ bodyClass: page-home
           </ul>
         </div>
 
-        <!-- a plataforma em uso: tela principal ao vivo + monitores sintonizando -->
-        <div class="stage" aria-label="Episódios recentes passando na central de transmissão">
-          <a class="screen" href="https://app.warbox.tv/live">
-            <img src="/assets/episodios/ofn-55.webp" alt="Os Fera Neném, episódio 55: Papo de Ferro" width="960" height="540" fetchpriority="high" decoding="async">
-            <span class="screen__shade" aria-hidden="true"></span>
-            <span class="pill pill--live">Ao vivo</span>
-            <span class="screen__ui" aria-hidden="true">
-              <span class="screen__btn"></span>
-              <span class="screen__meta">
-                <span class="screen__prog">Os Fera Neném #55</span>
-                <span class="screen__ttl">Papo de Ferro</span>
-              </span>
-              <span class="screen__bar"><i></i></span>
-            </span>
-          </a>
+        <!-- a plataforma em uso: MacBook com o app ao vivo + iPhone em modo áudio -->
+        <div class="stage">
+          <div class="stage__mac">
+            {{> macbook-open}}
+                  <div class="app">
+                    <div class="app__top" aria-hidden="true">
+                      <img src="/assets/logo-warbox-sm.webp" alt="" width="242" height="155" decoding="async">
+                      <span class="app__nav"><i></i><i></i><i></i><i></i></span>
+                      <span class="app__cta">Assine</span>
+                    </div>
+                    <div class="app__main">
+                      <a class="app__player" href="https://app.warbox.tv/live">
+                        <img src="/assets/episodios/ofn-55.webp" alt="Os Fera Neném, episódio 55: Papo de Ferro, ao vivo" width="960" height="540" fetchpriority="high" decoding="async">
+                        <span class="app__live">Ao vivo</span>
+                        <span class="app__bar" aria-hidden="true"><i></i></span>
+                      </a>
+                      <div aria-hidden="true">
+                        <p class="app__prog">Os Fera Neném #55</p>
+                        <p class="app__ttl">Papo de Ferro</p>
+                      </div>
+                    </div>
+                    <div class="app__side">
+                      <p class="app__h" aria-hidden="true">Saiu agora</p>
+                      <div class="tvs" data-wall>
+                        <a class="tv" href="https://app.warbox.tv/programs"><img src="/assets/episodios/notas-ed-motta.webp" alt="Notas sobre Notas, Ed Motta" width="960" height="540" decoding="async"></a>
+                        <a class="tv" href="https://app.warbox.tv/programs"><img src="/assets/episodios/pm-36.webp" alt="Pauta Mole, episódio 36" width="960" height="540" decoding="async"></a>
+                        <a class="tv" href="https://app.warbox.tv/programs"><img src="/assets/episodios/cagando-e-andando.webp" alt="Cagando e Andando" width="960" height="540" decoding="async"></a>
+                      </div>
+                    </div>
+                  </div>
+            {{> macbook-close}}
+          </div>
 
-          <div class="tvs" data-wall>
-            <a class="tv" href="https://app.warbox.tv/programs"><img src="/assets/episodios/notas-ed-motta.webp" alt="Notas sobre Notas, Ed Motta" width="960" height="540" decoding="async"></a>
-            <a class="tv" href="https://app.warbox.tv/programs"><img src="/assets/episodios/pm-36.webp" alt="Pauta Mole, episódio 36" width="960" height="540" decoding="async"></a>
-            <a class="tv" href="https://app.warbox.tv/programs"><img src="/assets/episodios/cagando-e-andando.webp" alt="Cagando e Andando" width="960" height="540" decoding="async"></a>
+          <div class="stage__phone">
+            {{> iphone-open}}
+                  <div class="player">
+                    <img class="player__cover" src="/assets/capas/os-fera-nenem.webp" alt="" width="640" height="640" decoding="async">
+                    <p class="player__prog">Os Fera Neném #55</p>
+                    <p class="player__ttl">Papo de Ferro</p>
+                    <div class="wave" data-wave><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                    <div class="player__ctrl"><span></span><span class="is-main"></span><span></span></div>
+                    <span class="player__mode">Modo áudio</span>
+                  </div>
+            {{> iphone-close}}
           </div>
 
           <div class="stage__fm">
@@ -69,15 +94,16 @@ bodyClass: page-home
           <p class="sec__lead rv">O que você leva no Plano Pika.</p>
 
           <!-- celular em modo áudio -->
-          <div class="phone rv" aria-hidden="true">
-            <div class="phone__screen">
-              <img class="phone__cover" src="/assets/capas/os-fera-nenem.webp" alt="" width="640" height="640" loading="lazy" decoding="async">
-              <p class="phone__prog">Os Fera Neném #55</p>
-              <p class="phone__ttl">Papo de Ferro</p>
-              <div class="wave" data-wave><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
-              <div class="phone__ctrl"><span></span><span class="is-main"></span><span></span></div>
-              <span class="pill pill--ghost">Modo áudio</span>
-            </div>
+          <div class="phone-wrap rv">
+            {{> iphone-open}}
+                  <div class="player">
+                    <img class="player__cover" src="/assets/capas/pauta-mole.webp" alt="" width="640" height="640" loading="lazy" decoding="async">
+                    <p class="player__prog">Pauta Mole #36</p>
+                    <div class="wave" data-wave><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                    <div class="player__ctrl"><span></span><span class="is-main"></span><span></span></div>
+                    <span class="player__mode">Modo áudio</span>
+                  </div>
+            {{> iphone-close}}
           </div>
         </div>
 
@@ -129,28 +155,24 @@ bodyClass: page-home
         <div class="sec__head">
           <div>
             <h2 class="h2 a-title" id="t-prog">Programas</h2>
-            <p class="sec__lead rv">Podcasts, mesas redondas, documentários e experimentos bizarros — tudo dentro da mesma caixa.</p>
-          </div>
-          <div class="carousel__nav" data-carousel-nav="progs">
-            <button class="round" type="button" data-dir="-1" aria-label="Anterior"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10H5M9 5l-5 5 5 5"/></svg></button>
-            <button class="round" type="button" data-dir="1" aria-label="Próximo"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h11M11 5l5 5-5 5"/></svg></button>
+            <p class="sec__lead rv">Podcasts, mesas redondas, documentários e experimentos bizarros, tudo dentro da mesma caixa.</p>
           </div>
         </div>
-      </div>
 
-      <ul class="carousel" data-carousel="progs">
-        <li><a class="cover" href="/canais/"><span class="cover__img"><img src="/assets/capas/os-fera-nenem.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span><span class="cover__name">Os Fera Neném</span></a></li>
-        <li><a class="cover" href="/canais/"><span class="cover__img"><img src="/assets/capas/pauta-mole.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span><span class="cover__name">Pauta Mole</span></a></li>
-        <li><a class="cover" href="/canais/"><span class="cover__img"><img src="/assets/capas/notas-sobre-notas.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span><span class="cover__name">Notas sobre Notas</span><span class="cover__by">por Tiago Carvalho</span></a></li>
-        <li><a class="cover" href="/canais/"><span class="cover__img"><img src="/assets/capas/trincheira.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span><span class="cover__name">Trincheira</span></a></li>
-        <li><a class="cover" href="/canais/"><span class="cover__img"><img src="/assets/capas/pauta-reporter.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span><span class="cover__name">Pauta Repórter</span></a></li>
-        <li><a class="cover" href="/canais/"><span class="cover__img"><img src="/assets/capas/cagando-e-andando.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span><span class="cover__name">Cagando e Andando</span><span class="cover__by">com Caçamba</span></a></li>
-        <li><a class="cover" href="/canais/"><span class="cover__img"><img src="/assets/capas/mangalho-files.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span><span class="cover__name">The Mangalho Files</span></a></li>
-        <li><a class="cover" href="/canais/"><span class="cover__img"><img src="/assets/capas/xuxuzinhos.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span><span class="cover__name">Xuxuzinhos</span></a></li>
-      </ul>
+        <ul class="progs">
+          <li class="rv"><a class="cover" href="/canais/"><span class="cover__img"><img src="/assets/capas/os-fera-nenem.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span><span class="cover__name">Os Fera Neném</span></a></li>
+          <li class="rv"><a class="cover" href="/canais/"><span class="cover__img"><img src="/assets/capas/pauta-mole.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span><span class="cover__name">Pauta Mole</span></a></li>
+          <li class="rv"><a class="cover" href="/canais/"><span class="cover__img"><img src="/assets/capas/notas-sobre-notas.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span><span class="cover__name">Notas sobre Notas</span><span class="cover__by">por Tiago Carvalho</span></a></li>
+          <li class="rv"><a class="cover" href="/canais/"><span class="cover__img"><img src="/assets/capas/trincheira.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span><span class="cover__name">Trincheira</span></a></li>
+          <li class="rv"><a class="cover" href="/canais/"><span class="cover__img"><img src="/assets/capas/pauta-reporter.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span><span class="cover__name">Pauta Repórter</span></a></li>
+          <li class="rv"><a class="cover" href="/canais/"><span class="cover__img"><img src="/assets/capas/cagando-e-andando.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span><span class="cover__name">Cagando e Andando</span><span class="cover__by">com Caçamba</span></a></li>
+          <li class="rv"><a class="cover" href="/canais/"><span class="cover__img"><img src="/assets/capas/mangalho-files.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span><span class="cover__name">The Mangalho Files</span></a></li>
+          <li class="rv"><a class="cover" href="/canais/"><span class="cover__img"><img src="/assets/capas/xuxuzinhos.webp" alt="" width="640" height="640" loading="lazy" decoding="async"></span><span class="cover__name">Xuxuzinhos</span></a></li>
+        </ul>
 
-      <div class="wrap sec__foot rv">
-        <a class="btn btn--secondary" href="/canais/">Ver programas {{> i-arrow}}</a>
+        <div class="sec__foot rv">
+          <a class="btn btn--secondary" href="/canais/">Ver programas {{> i-arrow}}</a>
+        </div>
       </div>
     </section>
 
@@ -169,7 +191,7 @@ bodyClass: page-home
           <li class="reason rv">
             <span class="reason__n" aria-hidden="true">02</span>
             <h3 class="reason__title">Conteúdos variados</h3>
-            <p>Podcasts, mesas redondas, documentários e experimentos bizarros — tudo dentro da mesma caixa.</p>
+            <p>Podcasts, mesas redondas, documentários e experimentos bizarros, tudo dentro da mesma caixa.</p>
           </li>
           <li class="reason rv">
             <span class="reason__n" aria-hidden="true">03</span>
@@ -187,7 +209,7 @@ bodyClass: page-home
       <div class="wrap">
         <div class="sec__head sec__head--center">
           <h2 class="h2 a-title" id="t-planos">Planos da Trincheira</h2>
-          <p class="sec__lead rv">Três jeitos de apoiar — do meme ao magnata.</p>
+          <p class="sec__lead rv">Três jeitos de apoiar: do meme ao magnata.</p>
         </div>
         {{> plans}}
       </div>

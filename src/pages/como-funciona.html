@@ -1,5 +1,5 @@
 ---
-title: Como funciona — Warbox TV
+title: Como funciona | Warbox TV
 description: Escolhe um plano, cria tua conta e vem fazer parte da guerra cultural mais divertida da internet. Pagamento por PIX, cartão ou cripto. Cancela quando quiser.
 nav: como-funciona
 ---
@@ -17,7 +17,7 @@ nav: como-funciona
             <span class="step__n" aria-hidden="true">1</span>
             <div class="step__copy">
               <h2 class="step__title">Escolha seu plano</h2>
-              <p>Três jeitos de apoiar — do meme ao magnata.</p>
+              <p>Três jeitos de apoiar: do meme ao magnata.</p>
               <a class="link" href="/planos/">Planos da Trincheira {{> i-arrow}}</a>
             </div>
             <div class="step__art" aria-hidden="true">
@@ -52,7 +52,11 @@ nav: como-funciona
               <a class="link" href="/login/">Entrar {{> i-arrow}}</a>
             </div>
             <div class="step__art" aria-hidden="true">
-              <div class="login-mock"><img src="/assets/logo-warbox-sm.webp" alt="" width="242" height="155" loading="lazy" decoding="async"><i></i><i></i><b></b></div>
+              <div class="device-solo device-solo--sm">
+                {{> iphone-open}}
+                      <div class="signin"><img src="/assets/logo-warbox-sm.webp" alt="" width="242" height="155" loading="lazy" decoding="async"><i></i><i></i><b></b></div>
+                {{> iphone-close}}
+              </div>
             </div>
           </li>
 
@@ -60,10 +64,14 @@ nav: como-funciona
             <span class="step__n" aria-hidden="true">4</span>
             <div class="step__copy">
               <h2 class="step__title">Comece a assistir</h2>
-              <p>Episódios completos, lives com chat, rádio e o acervo inteiro dos programas — tudo num lugar só.</p>
+              <p>Episódios completos, lives com chat, rádio e o acervo inteiro dos programas, tudo num lugar só.</p>
             </div>
             <div class="step__art" aria-hidden="true">
-              <div class="mini-screen"><img src="/assets/episodios/ofn-55.webp" alt="" width="960" height="540" loading="lazy" decoding="async"><span class="play" aria-hidden="true"></span></div>
+              <div class="device-mac">
+                {{> macbook-open}}
+                      <div class="app app--video"><img src="/assets/episodios/ofn-55.webp" alt="" width="960" height="540" loading="lazy" decoding="async"><span class="play"></span></div>
+                {{> macbook-close}}
+              </div>
             </div>
           </li>
         </ol>
