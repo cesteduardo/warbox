@@ -1385,6 +1385,7 @@ body {
 .facts li { max-width: 18ch; }
 .cta__btns, .phero__actions, .split__actions, .feats__cta { align-items: center; }
 .sec__head { align-items: end; }
+.sec__head--center { align-items: center; text-align: center; row-gap: 4px; }
 
 /* ---------- Botões com vida: cor viva, brilho e reflexo passando ---------- */
 .btn { overflow: hidden; isolation: isolate; letter-spacing: .06em; }
