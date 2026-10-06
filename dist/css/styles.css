@@ -1708,3 +1708,13 @@ body {
 .ftr__credit:hover b, .ftr__credit:hover img { opacity: 1; }
 .ftr__base { padding-bottom: 20px; }
 @media (max-width: 899px) { .ftr__base { padding-bottom: 20px; } .ftr__credit { padding-bottom: 110px; } }
+
+/* rodapé: copyright, pagamentos e crédito na mesma linha; crédito à direita */
+.ftr__base { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 16px 24px; padding-block: 24px; }
+.ftr__base > p { justify-self: start; }
+.ftr__pay { justify-self: center; }
+.ftr__credit { justify-self: end; padding: 0; border-top: 0; }
+@media (max-width: 899px) {
+  .ftr__base { grid-template-columns: 1fr; justify-items: start; padding-bottom: 110px; }
+  .ftr__pay, .ftr__credit { justify-self: start; }
+}
